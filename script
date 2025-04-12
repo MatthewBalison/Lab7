@@ -1,0 +1,17 @@
+#!/bin/bash
+
+export IP="..."
+
+# Shelling into the instance (this assumes the environmental variable IP has been updated to have the real instance IP)
+ssh -i ~/.ssh/labsuser.pem ubuntu@$IP
+
+# Checking for system updates (and updating them)
+sudo su
+apt update -y
+apt upgrade -y
+
+# Installing three of the packages
+apt install -y nginx
+apt install -y python3
+apt install -y redis
+
